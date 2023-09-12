@@ -1,5 +1,24 @@
 <script setup lang="ts">
 import TheWelcome from '../components/TheWelcome.vue'
+import axios from "axios";
+</script>
+
+<script>
+export default {
+  data() {
+    return {
+      users: [],
+    };
+  },
+  mounted() {
+    axios
+      .get("")
+      .then((response) => (this.users = response.data));
+  },
+  methods: {
+   
+  },
+};
 </script>
 
 <template>

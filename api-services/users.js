@@ -7,8 +7,13 @@ router.get("/", (req, res) => {
   res.status(200).send("Users 🙌 ");
 });
 
-router.get("/a", (req, res) => {
-  res.status(200).send("Users al 🙌 ");
+router.get("/get", async (req, res) => {
+  try{
+     const users = await Users.find();
+     res.json(users);
+  }catch(err){
+     res.json({ message: err });
+  }
 });
 
 router.post("/add", async (req,res) =>{
