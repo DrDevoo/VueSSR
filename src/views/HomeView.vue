@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import TheWelcome from '../components/TheWelcome.vue'
 import axios from "axios";
 </script>
@@ -12,7 +12,7 @@ export default {
   },
   mounted() {
     axios
-      .get("")
+      .get("http://localhost:444/api/users/get")
       .then((response) => (this.users = response.data));
   },
   methods: {
@@ -23,7 +23,9 @@ export default {
 
 <template>
   <main>
-    HelloWorld
+    <ul>
+      <li v-for="user in users" :key="user._id">{{user.name}} ({{ user.age }})</li>
+    </ul>
     <RouterLink to="/teszt"><h3>masik</h3></RouterLink>
   </main>
 </template>

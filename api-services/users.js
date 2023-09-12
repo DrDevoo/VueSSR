@@ -19,7 +19,7 @@ router.get("/get", async (req, res) => {
 router.post("/add", async (req,res) =>{
      try{
          const name = req.body.name
-         const age = req.body.age
+          const age = req.body.age
 
           const user = await Users.create({  
                name: name,
